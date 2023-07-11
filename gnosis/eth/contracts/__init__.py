@@ -48,6 +48,7 @@ def _load_json_file(path):
 
 current_module = sys.modules[__name__]
 contracts = {
+    "safe_V1_4_1": "Safe_V1_4_1.json",
     "safe_V1_3_0": "GnosisSafe_V1_3_0.json",
     "safe_V1_1_1": "GnosisSafe_V1_1_1.json",
     "safe_V1_0_0": "GnosisSafe_V1_0_0.json",
@@ -60,7 +61,8 @@ contracts = {
     "delegate_constructor_proxy": "DelegateConstructorProxy.json",
     "multi_send": "MultiSend.json",
     "paying_proxy": "PayingProxy.json",
-    "proxy_factory": "ProxyFactory_V1_3_0.json",
+    "proxy_factory_V1_4_1": "ProxyFactory_V1_4_1.json",
+    "proxy_factory_V1_3_0": "ProxyFactory_V1_3_0.json",
     "proxy_factory_V1_1_1": "ProxyFactory_V1_1_1.json",
     "proxy_factory_V1_0_0": "ProxyFactory_V1_0_0.json",
     "proxy": "Proxy_V1_1_1.json",
@@ -95,9 +97,13 @@ def get_safe_contract(w3: Web3, address: Optional[str] = None) -> Contract:
     """
     :param w3:
     :param address:
-    :return: Latest available safe contract (v1.3.0)
+    :return: Latest compatible safe contract (v1.3.0)
     """
     return get_safe_V1_3_0_contract(w3, address=address)
+
+
+def get_safe_V1_4_1_contract(w3: Web3, address: Optional[str] = None) -> Contract:
+    pass
 
 
 def get_safe_V1_3_0_contract(w3: Web3, address: Optional[str] = None) -> Contract:
@@ -153,6 +159,23 @@ def get_paying_proxy_contract(w3: Web3, address: Optional[str] = None) -> Contra
 
 
 def get_proxy_factory_contract(w3: Web3, address: Optional[str] = None) -> Contract:
+    """
+    :param w3:
+    :param address:
+    :return: Latest compatible proxy factory (v1.3.0)
+    """
+    return get_proxy_factory_V1_3_0_contract(w3, address)
+
+
+def get_proxy_factory_V1_4_1_contract(
+    w3: Web3, address: Optional[str] = None
+) -> Contract:
+    pass
+
+
+def get_proxy_factory_V1_3_0_contract(
+    w3: Web3, address: Optional[str] = None
+) -> Contract:
     pass
 
 
